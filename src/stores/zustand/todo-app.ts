@@ -59,3 +59,13 @@ export const useTodoAppStore = create<TodoAppStore>((set, get) => ({
     }
   },
 }));
+
+
+export const useTodoAppApi = () => {
+  const { addTodo, deleteTodo, toggleTodo } = useTodoAppStore.getState();
+  return {
+    addTodo,
+    deleteTodo,
+    toggleTodo,
+  };
+};

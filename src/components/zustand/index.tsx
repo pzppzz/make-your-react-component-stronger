@@ -1,9 +1,11 @@
 import { TodoInput } from "../todo-app";
-import { useTodoAppStore } from "../../stores/zustand/todo-app";
+import { useTodoAppApi, useTodoAppStore } from "../../stores/zustand/todo-app";
 import { TodoList } from "./todo-list";
 
 export const ZustandTodoApp: React.FC = () => {
-  const { todoIds, addTodo, deleteTodo, toggleTodo } = useTodoAppStore();
+  const { addTodo, deleteTodo, toggleTodo } = useTodoAppApi();
+  const todoIds = useTodoAppStore((s) => s.todoIds);
+
   return (
     <div className="todo-app" style={{ width: 400 }}>
       <div className="todo-app-header">
